@@ -36,7 +36,7 @@ export function getToken(){
 // GetUser
 
 export function getUser(){
-    const token = getToken();
+    const token =  getToken();
     return token ? JSON.parse(window.atob(token.split('.')[1])).user : null;
 }
 
@@ -49,7 +49,7 @@ export function logout(){
 
 // checkToken
 
-export function checkToken(){
+export async function checkToken(){
     return usersAPI.checkToken()
            .then(dateStr => new Date(dateStr))
 }

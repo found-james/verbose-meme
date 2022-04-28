@@ -1,0 +1,8 @@
+.header {
+    background-color: blue;
+    height: 200px;
+}
+
+.header p {
+    font-size: large;
+}
