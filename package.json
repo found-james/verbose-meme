@@ -1,18 +1,23 @@
 {
   "engines": {
-    "node":"14.17"
+    "node": "14.17"
   },
   "proxy": "http://localhost:3001",
   "name": "mern-infrastructure",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@chakra-ui/icons": "^1.1.7",
+    "@chakra-ui/react": "^1.8.8",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "bcrypt": "^5.0.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.3",
+    "framer-motion": "^6.3.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.11",
     "morgan": "^1.10.0",

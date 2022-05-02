@@ -10,15 +10,20 @@ import { Routes, Route, Link } from 'react-router-dom'
 function App() {
   const [user, setUser ] = useState(null);
 
+  const handleClick = (e) => {
+    e.preventdefault();
+    localStorage.clear();
+  }
+
   return (
     <main className="App">
       <header>
         {
           user ? (
             <>
-            <p> logout </p>
+            <Link to="/" onClick={ handleClick }><p> logout </p></Link>
             <Link to="/about"><p> about </p></Link>
-            <Link to="/user"><p>back to index</p></Link>
+            <Link to="/"><p>back to index</p></Link>
             </>
           ): (
             <>
@@ -28,7 +33,7 @@ function App() {
         }
         <Routes>
             <Route path="/about" element={ <About /> } />
-            <Route path="/user/pic1" element={ <Show /> } />
+            <Route path="/user/pic1" element={ <Show user={user} setUser={setUser}/> } />
             <Route path="user/pic2" element={ <Show /> } />
             <Route path="user/pic3" element={ <Show /> } />
         </Routes>
@@ -36,7 +41,7 @@ function App() {
       {
         user ?
         <Routes>
-          <Route path="/user" element={<Index />}/>
+          <Route path="/" element={<Index />}/>
         </Routes>
         :
         <AuthPage setUser={setUser}/>
