@@ -1,53 +1,138 @@
-import { Component } from 'react';
 import { signUp } from '../../utilities/users-service';
+import { Flex, Box, FormControl, FormLabel, Input, InputGroup, HStack, InputRightElement, Stack, Button, Heading, Text, useColorModeValue, Link
+} from '@chakra-ui/react';
+import { useState } from 'react';
+import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 
-export default class SignUpForm extends Component {
-    state = {
-        name: '',
-        email: '',
-        password: '',
-        confirm: '',
-        error: ''
+export default function SignUpForm({ setUser }) {
+  const [showPassword, setShowPassword] = useState(false);
+  const [signupInfo, setSignupInfo] = useState({
+      name: '',
+      email: '',
+      password: null,
+      confirm: "",
+      error: ''
+  });
+
+  const handleChange = (evt) => {
+    setSignupInfo({...signupInfo, [evt.target.name]: evt.target.value, error: '' })
+  }
+
+  const handleSubmit = async (evt) => {
+    evt.preventDefault();
+
+    if (signupInfo.password !== signupInfo.confirm){
+      setSignupInfo({error: "sign up failed"});
+      throw new Error ("passwords dont match");
     }
 
-    handleChange = (evt) => {
-        this.setState({...this.state, [evt.target.name]: evt.target.value, error: '' })
+    try {
+      const formData = signupInfo;
+      delete formData.error;
+      delete formData.confirm;
+      const user = await signUp(formData)
+      setUser(user);
+    } catch (error) {
+      setSignupInfo({ error: 'Sign Up Failed'} )
     }
-
-    handleSubmit = async (evt) => {
-        evt.preventDefault();
-        try {
-          const formData = {...this.state};
-          delete formData.error;
-          delete formData.confirm;
-          const user = await signUp(formData)
-          this.props.setUser(user)
-        } catch (error) {
-          this.setState({ error: 'Sign Up Failed'} )
-        }
-    }
+  }
 
 
-    render() {
-        const disable = this.state.password !== this.state.confirm;
-        return (
-          <div>
-            <div className="form-container">
-              <form autoComplete="off" onSubmit={this.handleSubmit}>
-                <label>Name</label>
-                <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
-                <label>Email</label>
-                <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
-                <label>Password</label>
-                <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
-                <label>Confirm</label>
-                <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
-                <button type="submit" disabled={disable}>SIGN UP</button>
-              </form>
-            </div>
-            <h1 className="error-message">&nbsp;{this.state.error}</h1>
-          </div>
-        );
-      }
+  return (
+    <Flex
+      minH={'100vh'}
+      align={'center'}
+      justify={'center'}
+      bg={useColorModeValue('gray.50', 'gray.800')}>
+      <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
+        <Stack align={'center'}>
+          <Heading fontSize={'4xl'} textAlign={'center'}>
+            Sign up
+          </Heading>
+          <Text fontSize={'lg'} color={'gray.600'}>
+            to enjoy all of our cool features ✌️
+          </Text>
+        </Stack>
+        <Box
+          rounded={'lg'}
+          bg={useColorModeValue('white', 'gray.700')}
+          boxShadow={'lg'}
+          p={8}>
+
+          <Stack spacing={8}>
+              <form onSubmit={handleSubmit}>
+              <Box>
+                <FormControl id="firstName" isRequired>
+                  <FormLabel>First Name</FormLabel>
+                  <Input type="text" name="name" value={signupInfo.name} onChange={handleChange}/>
+                </FormControl>
+              </Box>
+      
+                <FormControl id="email" isRequired>
+                  <FormLabel>Email address</FormLabel>
+                  <Input type="email" name="email" value={signupInfo.email} onChange={handleChange}/>
+                </FormControl>
+
+                <FormControl id="password" isRequired>
+                  <FormLabel>Password</FormLabel>
+                  <InputGroup>
+                    <Input type={showPassword ? 'text' : 'password'} name="password" value={signupInfo.password} onChange={handleChange} />
+                    <InputRightElement h={'full'}>
+
+                    <Button
+                        variant={'ghost'}
+                        onClick={() =>
+                          setShowPassword((showPassword) => !showPassword)
+                        }>
+                        {showPassword ? <ViewIcon /> : <ViewOffIcon />}
+                    </Button>
+                    </InputRightElement>
+                  </InputGroup>
+                </FormControl>
+
+                <Box>
+                  <FormControl id="confirm" isRequired>
+                    <FormLabel>Confirm</FormLabel>
+                    <InputGroup>
+                      <Input type={showPassword ? "text" : "password"} value={signupInfo.confirm} name="confirm" onChange={handleChange}/>
+                      <InputRightElement h={'full'}>
+                      <Button
+                        variant={'ghost'}
+                        onClick={() =>
+                          setShowPassword((showPassword) => !showPassword)
+                        }>
+                        {showPassword ? <ViewIcon /> : <ViewOffIcon />}
+                      </Button>
+                      </InputRightElement>
+                    </InputGroup>
+                  </FormControl>
+                </Box>
+            
+            <Stack spacing={10} pt={2}>
+              <Button
+                type="submit"
+                isDisabled={signupInfo.password !== signupInfo.confirm ? true: false }
+                loadingText="Submitting"
+                size="lg"
+                bg={'blue.400'}
+                color={'white'}
+                _hover={{
+                  bg: 'blue.500',
+                }}>
+                Sign up
+              </Button>
+            </Stack>
+            </form>
+            <Stack pt={6}>
+              <Text align={'center'}>
+                Already a user? <Link color={'blue.400'}>Login</Link>
+              </Text>
+              <Text>{signupInfo.error}</Text>
+            </Stack>
+          </Stack>
+        </Box>
+      </Stack>
+    </Flex>
+  );
 }
 

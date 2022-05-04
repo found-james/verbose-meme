@@ -2,52 +2,39 @@ import './App.css';
 import { useState } from 'react';
 import Index from '../Index/IndexPage';
 import AuthPage from '../AuthPage/AuthPage';
-import Show from '../Show/ShowPage';
+import ShowOne from '../Show/ShowOne';
+import ShowTwo from "../Show/ShowTwo";
+import ShowThree from "../Show/ShowThree";
 import About from '../About/About';
 import { getUser } from '../../utilities/users-service.js'
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route, Link, Navigate } from 'react-router-dom'
+import Header from '../../components/Header/Header';
 
 function App() {
   const [user, setUser ] = useState(null);
+  const [showSignUp, setShowSignUp] = useState(false)
 
-  const handleClick = (e) => {
+  const signOut = (e) => {
     e.preventdefault();
     localStorage.clear();
   }
 
   return (
-    <main className="App">
-      <header>
-        {
-          user ? (
-            <>
-            <Link to="/" onClick={ handleClick }><p> logout </p></Link>
-            <Link to="/about"><p> about </p></Link>
-            <Link to="/"><p>back to index</p></Link>
-            </>
-          ): (
-            <>
-            <p>about</p>
-            </>
-          )
-        }
-        <Routes>
-            <Route path="/about" element={ <About /> } />
-            <Route path="/user/pic1" element={ <Show user={user} setUser={setUser}/> } />
-            <Route path="user/pic2" element={ <Show /> } />
-            <Route path="user/pic3" element={ <Show /> } />
-        </Routes>
-      </header>
+    <main >
+        
+    <Header user={ user } signOut={ signOut } showSignUp={ showSignUp } setShowSignUp={ setShowSignUp }/>
       {
-        user ?
+        !user ? <AuthPage setUser={setUser} showSignUp={showSignUp}/> : (
         <Routes>
-          <Route path="/" element={<Index />}/>
-        </Routes>
-        :
-        <AuthPage setUser={setUser}/>
+          <Route path="/" element={<Index setUser={ setUser } user={user} /> } />
+        </Routes>)
       }
-
-
+      <Routes>
+            <Route path="/about" element={ <About /> } />
+            <Route path="/pic1" element={ <ShowOne user={user} setUser={setUser}/> } />
+            <Route path="/pic2" element={ <ShowTwo user={user} setUser={setUser}/>} />
+            <Route path="/pic3" element={ <ShowThree user={user} setUser={setUser}/>} />
+      </Routes>
     </main>
   );
 }

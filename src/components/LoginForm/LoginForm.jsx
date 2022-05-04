@@ -71,6 +71,7 @@ import {Flex, Box, FormControl, FormLabel, Input, Checkbox, Stack, Link, Button,
               
                 <Button
                   type="submit"
+                  isDisabled={ !credentials.password ? true: false }
                   bg={'blue.400'}
                   color={'white'}
                   _hover={{
