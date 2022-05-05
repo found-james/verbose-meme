@@ -7,8 +7,9 @@ const commentSchema = new Schema({
     pic: { type: Schema.Types.ObjectId, ref: "Pic"}}, 
     { timestamps: true});
 
+const Comment = mongoose.model("Comment", commentSchema);
 
-module.exports = mongoose.model("Comment", commentSchema);
+module.exports = Comment;
 
 // text
 // title

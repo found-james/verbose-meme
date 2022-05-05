@@ -18,7 +18,7 @@ const userSchema = new Schema({
     trim: true,
     minLength: 3,
     required: true
-  }
+  },
 }, {
   timestamps: true,
   toJSON: {
@@ -37,4 +37,5 @@ userSchema.pre('save', async function(next) {
   return next();
 });
 
-module.exports = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema);
+module.exports = User;
