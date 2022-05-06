@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-import { getAllCmts } from "../../controllers/api/comments";
+const { getAllCmts } = require("../../controllers/api/comments");
 
-app.get("/comments", getAllCmts);
+router.get("/", getAllCmts);
 
 module.exports = router;

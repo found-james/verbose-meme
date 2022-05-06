@@ -1,4 +1,4 @@
-import { Comment } from "../../models";
+const { Comment } = require("../../models")
 
 module.exports = { getAllCmts }
 async function getAllCmts (req, res) {

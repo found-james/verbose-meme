@@ -1,6 +1,6 @@
 import sendRequest from './send-request';
 
-const BASE_URL = '/comments';
+const BASE_URL = '/api/comments';
 
 export function getAll() {
   return sendRequest(BASE_URL);

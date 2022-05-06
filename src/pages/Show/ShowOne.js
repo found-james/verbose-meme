@@ -14,7 +14,7 @@ export default function ShowOne ({ user }){
         async function getItems () {
             try {
                 console.log("YO")
-                const cmtALL = await axios.get("https://localhost:3001/comments")
+                const cmtALL = await cmtAPI.getAll();
                 setCmt(cmtALL);
             } catch (err) {
                 console.log(err);
