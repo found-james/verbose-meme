@@ -5,6 +5,8 @@ async function getAllCmts (req, res) {
     try {
       const cmtCollection = await Comment.find({});
       res.status(200).json({ success: true, msg: cmtCollection });
+      return cmtCollection;
+
     } catch (err) {
       res.status(400).json({ success: false, msg: err.message});
     }

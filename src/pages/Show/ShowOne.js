@@ -15,7 +15,8 @@ export default function ShowOne ({ user }){
             try {
                 console.log("YO")
                 const cmtALL = await cmtAPI.getAll();
-                setCmt(cmtALL);
+                console.log(cmtALL.msg);
+                setCmt(cmtALL.msg);
             } catch (err) {
                 console.log(err);
             }
@@ -38,7 +39,11 @@ export default function ShowOne ({ user }){
             <Box style={{ backgroundColor: "blue", height: "500px"} }>
                 
                 {
-                    cmt && cmt.map(cmt => {return(<p>{cmt}</p>)})
+                    cmt && cmt.map(cmt => {
+                        return (
+                            <p>{cmt.text}</p>
+                        )
+                    })
                 }
             </Box>
         </>
