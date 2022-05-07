@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+# MERN stack app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ERD
+<img src="https://i.imgur.com/Cz74Fku.png"/>
 
-## Available Scripts
+Trello board
 
-In the project directory, you can run:
+[<img src="https://i.imgur.com/KPZGOA7.png"/>](https://trello.com/b/Qo3hFEoh/project-3)
 
-### `npm start`
+Wire frames
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+login
+<img src="https://i.imgur.com/lfJbiVI.png"/>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+index
+<img src="https://i.imgur.com/zTOG7J2.png"/>
 
-### `npm test`
+show
+<img src="https://i.imgur.com/Q55U7Yd.png"/>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# <u> Technologies used </u>
 
-### `npm run build`
+<img src="https://www.nicepng.com/png/full/67-671824_heroku-logo-heroku.png" width=100/><img src="https://aws1.discourse-cdn.com/sitepoint/original/3X/b/5/b59a78e2ed76c705f3c0dcb300f3f222aefdcd99.png" width=100/><img src="https://miro.medium.com/max/1300/1*rJB4Tcz_ZZnliNxYmdfGqw.jpeg" width="100" />
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.svg" width=100 /><img src="https://miro.medium.com/max/1296/1*iDvsmUwzZQxJSKdL0xzwIA.png" width=100/>
