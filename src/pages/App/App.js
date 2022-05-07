@@ -21,7 +21,7 @@ function App() {
 
   return (
     <main >
-        
+       
     <Header user={ user } signOut={ signOut } showSignUp={ showSignUp } setShowSignUp={ setShowSignUp }/>
       {
         !user ? <AuthPage setUser={setUser} showSignUp={showSignUp}/> : (
@@ -29,7 +29,7 @@ function App() {
           <Route path="/" element={<Index setUser={ setUser } user={user} /> } />
         </Routes>)
       }
-      <Routes>
+       <Routes>
             <Route path="/about" element={ <About /> } />
             <Route path="/pic1" element={ <ShowOne user={user} setUser={setUser}/> } />
             <Route path="/pic2" element={ <ShowTwo user={user} setUser={setUser}/>} />

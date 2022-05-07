@@ -1,6 +1,7 @@
 const { Comment } = require("../../models")
 
-module.exports = { getAllCmts }
+module.exports = { getAllCmts, createCmt }
+
 async function getAllCmts (req, res) {
     try {
       const cmtCollection = await Comment.find({});
@@ -11,3 +12,12 @@ async function getAllCmts (req, res) {
       res.status(400).json({ success: false, msg: err.message});
     }
   }
+
+async function createCmt (req, res) {
+  try {
+    const cmt = await Comment.create(req.body);
+  
+  } catch (err) {
+    res.status(400).json({ success: false , msg: err.message });
+  }
+}
