@@ -9,6 +9,7 @@ import About from '../About/About';
 import { getUser } from '../../utilities/users-service.js'
 import { Routes, Route, Link, Navigate } from 'react-router-dom'
 import Header from '../../components/Header/Header';
+import { ChakraProvider } from '@chakra-ui/react';
 
 function App() {
   const [user, setUser ] = useState(null);
@@ -23,12 +24,14 @@ function App() {
     <main >
        
     <Header user={ user } signOut={ signOut } showSignUp={ showSignUp } setShowSignUp={ setShowSignUp }/>
+    <ChakraProvider>
       {
         !user ? <AuthPage setUser={setUser} showSignUp={showSignUp}/> : (
         <Routes>
           <Route path="/" element={<Index setUser={ setUser } user={user} /> } />
         </Routes>)
       }
+      </ChakraProvider>
        <Routes>
             <Route path="/about" element={ <About /> } />
             <Route path="/pic1" element={ <ShowOne user={user} setUser={setUser}/> } />
