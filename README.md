@@ -1,22 +1,14 @@
 # MERN stack app
 
 ERD
-<img src="https://i.imgur.com/Cz74Fku.png"/>
+<img width="80%" src="https://i.imgur.com/Cz74Fku.png"/>
 
-Trello board
 
-[<img src="https://i.imgur.com/KPZGOA7.png"/>](https://trello.com/b/Qo3hFEoh/project-3)
-
-Wire frames
+Wire frame
 
 login
-<img src="https://i.imgur.com/lfJbiVI.png"/>
+<img width="80%" src="https://i.imgur.com/lfJbiVI.png"/>
 
-index
-<img src="https://i.imgur.com/zTOG7J2.png"/>
-
-show
-<img src="https://i.imgur.com/Q55U7Yd.png"/>
 
 # <u> Technologies used </u>
 
